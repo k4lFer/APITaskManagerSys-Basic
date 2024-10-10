@@ -20,10 +20,9 @@ import lombok.RequiredArgsConstructor;
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-
     private final JwtTokenService jwtService;
-    private static final JwtConfig jwtConfig = new JwtConfig();
 
+    @SuppressWarnings("null")
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
@@ -51,9 +50,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     }
 
     private String getTokenFromRequest(HttpServletRequest request) {
-        final String authHeader = request.getHeader(jwtConfig.HEADER_AUTHORIZATION);
-        if (StringUtils.hasText(authHeader) && authHeader.startsWith(jwtConfig.PREFIX_TOKEN)) {
-            return authHeader.substring(jwtConfig.PREFIX_TOKEN.length());
+        final String authHeader = request.getHeader(JwtConfig.HEADER_AUTHORIZATION);
+        if (StringUtils.hasText(authHeader) && authHeader.startsWith(JwtConfig.PREFIX_TOKEN)) {
+            return authHeader.substring(JwtConfig.PREFIX_TOKEN.length());
         }
         return null;
     }
