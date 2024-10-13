@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.k4lfer.TaskManagementSystem.Dto.Objects.DtoUser;
 import com.k4lfer.TaskManagementSystem.Services.Jwt.JwtTokenService;
-import com.k4lfer.TaskManagementSystem.Services.UserService;
+import com.k4lfer.TaskManagementSystem.Services.user.UserService;
 
 import lombok.RequiredArgsConstructor;
 

@@ -15,12 +15,9 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -30,14 +27,10 @@ public class Tasks {
     @Id
     private UUID id;
 
-    // Relación con User
-    @ManyToOne
-    @JoinColumn(name = "userID") // Clave foránea para User
-    private User user;
-
     @Column(name = "title")
     private String title;
 
+    @Setter
     @Column(name = "description")
     private String description;
 
@@ -48,14 +41,17 @@ public class Tasks {
     @Column(name = "dueDate")
     private LocalDateTime dueDate;
 
+        @ManyToOne
+        @JoinColumn(name = "userId") 
+        private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "categoryID") 
-    private Category category;
+        @ManyToOne
+        @JoinColumn(name = "categoryId") 
+        private Category category;
 
-    @ManyToOne
-    @JoinColumn(name = "priorityID") 
-    private Priority priority;
+        @ManyToOne
+        @JoinColumn(name = "priorityId") 
+        private Priority priority;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

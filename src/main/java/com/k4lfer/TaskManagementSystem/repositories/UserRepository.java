@@ -10,7 +10,6 @@ import com.k4lfer.TaskManagementSystem.models.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User,UUID>{
-    //Optional<User> findById(UUID id);
     Optional<User> findByUsername(String username);
     Optional<User> findByEmail(String email); 
 }

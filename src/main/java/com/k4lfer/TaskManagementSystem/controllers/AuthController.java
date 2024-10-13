@@ -14,7 +14,7 @@ import com.k4lfer.TaskManagementSystem.Dto.Other.DtoResponse;
 import com.k4lfer.TaskManagementSystem.Dto.Other.HttpStatusMapper;
 import com.k4lfer.TaskManagementSystem.Dto.Other.TokenResponse;
 import com.k4lfer.TaskManagementSystem.Services.Jwt.JwtTokenService;
-import com.k4lfer.TaskManagementSystem.Services.UserService;
+import com.k4lfer.TaskManagementSystem.Services.user.UserService;
 import com.k4lfer.TaskManagementSystem.models.User;
 
 import lombok.AllArgsConstructor;
