@@ -1,6 +1,7 @@
 package com.k4lfer.TaskManagementSystem.Dto.Objects;
 
 import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.UUID;
 
 import com.k4lfer.TaskManagementSystem.Dto.Other.StatusTask;
@@ -18,7 +19,7 @@ public class DtoTask {
     private String description;
 
     private StatusTask status;
-    private LocalDateTime dueDate;
+    private Calendar dueDate;
 
     private UUID userId;
     private UUID categoryId;

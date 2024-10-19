@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.k4lfer.TaskManagementSystem.Dto.Objects.DtoAuth;
 import com.k4lfer.TaskManagementSystem.Dto.Objects.DtoUser;
 import com.k4lfer.TaskManagementSystem.Dto.Other.DtoResponse;
 import com.k4lfer.TaskManagementSystem.Dto.Other.Role;
@@ -31,6 +32,19 @@ public class UserService {
         return userRepository.findByEmail(email);
     }
 
+    public UserResponse login(DtoAuth dtoAuth){
+        UserResponse userResponse = new UserResponse();
+
+        User user = loadUserByUsernameOrEmail(dtoAuth.getUsernameOrEmail());
+        if (user == null || !passwordEncoder.matches(dtoAuth.getPassword(), user.getPassword())) {
+            userResponse.dtoResponse.error("El usuario o la contraseña no coincide, revise sus credenciales");
+            return userResponse; 
+        }
+        userResponse.dtoResponse.success("Bienvenido!!");
+        userResponse.setDtoUser(new DtoUser(user.getId(), user.getUsername(), user.getEmail(), null, user.getRole(), user.getCreated_at(), user.getUpdated_at()));
+        return userResponse;
+    }
+    
     public DtoUser findUserById(UUID id) {
         return userRepository.findById(id)
          .map(user -> {

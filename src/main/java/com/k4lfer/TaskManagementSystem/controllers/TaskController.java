@@ -22,7 +22,6 @@ import com.k4lfer.TaskManagementSystem.Services.tasks.TaskService;
 import lombok.RequiredArgsConstructor;
 
 
-
 @RestController
 @RequestMapping("/tasks")
 @RequiredArgsConstructor
@@ -30,7 +29,7 @@ public class TaskController {
     private final JwtTokenService tokenService;
     private final TaskService taskService;
 
-    @PostMapping("/new")
+    @PostMapping("/new-task")
     public ResponseEntity<DtoResponse> newTask(@RequestHeader("Authorization") String authorizationHeader,@RequestBody DtoTask dtoTask) { 
         String token = authorizationHeader.substring(7);
         UUID userId = tokenService.getUserIdFromToken(token);

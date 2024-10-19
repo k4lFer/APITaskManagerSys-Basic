@@ -1,6 +1,7 @@
 package com.k4lfer.TaskManagementSystem.models;
 
 import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.UUID;
 
 import com.k4lfer.TaskManagementSystem.Dto.Other.StatusTask;
@@ -39,7 +40,7 @@ public class Tasks {
     private StatusTask status;
 
     @Column(name = "dueDate")
-    private LocalDateTime dueDate;
+    private Calendar dueDate;
 
         @ManyToOne
         @JoinColumn(name = "userId") 

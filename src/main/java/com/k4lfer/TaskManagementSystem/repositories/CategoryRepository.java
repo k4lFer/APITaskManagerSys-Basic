@@ -9,5 +9,4 @@ import com.k4lfer.TaskManagementSystem.models.Category;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, UUID>{
-
 }
