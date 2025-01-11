@@ -22,8 +22,10 @@ public class DtoTask {
     private Calendar dueDate;
 
     private UUID userId;
+
     private UUID categoryId;
     private String categoryName;
+    
     private UUID priorityId;
     private String priorityName;
 

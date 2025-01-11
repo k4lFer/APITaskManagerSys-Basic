@@ -14,6 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.k4lfer.TaskManagementSystem.Services.Jwt.JwtAuthenticationFilter;
 
 import lombok.RequiredArgsConstructor;
+
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -27,7 +28,13 @@ public class SecurityConfig {
         return http
                 .csrf(crsf -> crsf.disable())
                 .authorizeHttpRequests((requests) -> requests
-                    .requestMatchers("/auth/login", "/auth/register", "/auth/refresh-token").permitAll()
+                .requestMatchers(
+                    "/v3/api-docs/**",
+                    "/swagger-ui/**",
+                    "/swagger-ui.html",
+                    "/swagger-ui/index.html",
+                    "/auth/login", "/auth/register", "/auth/refresh-token"
+                ).permitAll()
                     .anyRequest().authenticated())    
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)   
                 .build();   

@@ -63,7 +63,7 @@ public class UserService {
         DtoResponse dtoResponse = new DtoResponse();
         Optional<User> userByUsername = userRepository.findByUsername(dtoUser.getUsername());
         Optional<User> userByEmail = userRepository.findByEmail(dtoUser.getEmail());
-
+       
         if (userByUsername.isPresent()) {
             dtoResponse.error("El nombre de usuario ya existe.");
             return dtoResponse;

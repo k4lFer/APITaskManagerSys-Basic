@@ -13,5 +13,4 @@ public interface TaskRepository extends JpaRepository<Tasks, UUID>{
     Page<Tasks> findByUserIdAndCategoryId(UUID userId, UUID categoryId, Pageable pageable);
     Page<Tasks> findByUserIdAndPriorityId(UUID userId, UUID priorityId, Pageable pageable);
     Page<Tasks> findByUserIdAndCategoryIdAndPriorityId(UUID userId, UUID categoryId, UUID priorityId, Pageable pageable);
-
 }
